@@ -1,5 +1,6 @@
-.vscode/**
-.vscode-test/**
-.gitignore
-vsc-extension-quickstart.md
-result
+**/*
+!client/out/main.js
+!language-configuration.json
+!package.json
+!syntaxes/
+!LICENSE.md
