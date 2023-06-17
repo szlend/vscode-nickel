@@ -35,7 +35,7 @@
       "patterns": [
         {
           "name": "storage.modifier",
-          "match": "\\b(rec|doc)\\b"
+          "match": "\\b(let|in|forall|import|default|force|optional|priority|doc|rec)\\b"
         },
         {
           "name": "storage.type",
@@ -46,7 +46,7 @@
     "strings_interpolation": {
       "name": "string.interpolated",
       "begin": "m%\"$",
-      "end": "\"%m",
+      "end": "\"%",
       "patterns": [
         {
           "name": "constant.character.escape.interpolation.nickel",
@@ -73,7 +73,7 @@
       "patterns": [
         {
           "name": "support.class",
-          "match": "\\b(Num|Bool|Dyn|Str|Array|optional)\\b"
+          "match": "\\b(Number|Bool|Dyn|String|Array)\\b"
         }
       ]
     },
@@ -81,7 +81,7 @@
       "patterns": [
         {
           "name": "keyword.control.nickel",
-          "match": "\\b(if|else|then|let|in|switch|forall|import|default)\\b"
+          "match": "\\b(if|else|then|match)\\b"
         }
       ]
     },
@@ -128,7 +128,7 @@
       "patterns": [
         {
           "name": "keyword.operator",
-          "match": "(=>|==|=|\\|\\||\\||->|<|>|>=|<=|\\+\\+|\\+|\\-\\$|\\-|\\*|\\/|&&|&|\\.|\\:)"
+          "match": "(=>|==|=|\\|\\||\\||->|<|>|>=|<=|\\+\\+|\\+|\\-\\$|\\-|\\*|\\/|&&|&|\\.|\\:|@)"
         }
       ]
     }
