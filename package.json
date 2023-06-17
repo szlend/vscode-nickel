@@ -1,20 +1,26 @@
 {
-  "name": "nickel-syntax",
-  "displayName": "Nickel syntax",
-  "description": "Syntax highlighting for the Nickel language",
-  "version": "0.0.2",
+  "name": "unofficial-vscode-nickel",
+  "displayName": "Nickel Language (unofficial)",
+  "description": "Unofficial Visual Studio Code extension for the Nickel language",
+  "author": "szlend",
+  "license": "Apache-2.0",
+  "version": "0.1.0",
   "engines": {
-    "vscode": "^1.57.0"
+    "vscode": "^1.79.1"
   },
   "categories": [
     "Programming Languages"
   ],
   "repository": {
-    "url": "https://github.com/kubukoz/vscode-nickel-syntax",
+    "url": "https://github.com/szlend/vscode-nickel",
     "type": "git"
   },
-  "license": "Apache 2.0",
-  "publisher": "kubukoz",
+  "publisher": "szlend",
+  "keywords": [
+    "multi-root ready"
+  ],
+  "activationEvents": [],
+  "main": "./client/out/extension",
   "contributes": {
     "languages": [
       {
@@ -35,9 +41,43 @@
         "scopeName": "source.nickel",
         "path": "./syntaxes/nickel.tmLanguage.json"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Nickel Language Server Configuration",
+      "properties": {
+        "nls.server.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "nls",
+          "description": "Path to nickel language server"
+        },
+        "nls.server.trace": {
+          "scope": "window",
+          "type": "string",
+          "description": "Enables performance tracing to the given file"
+        },
+        "nls.server.debugLog": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "description": "Logs the communication between VS Code and the language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "cd client && npm install && cd .. && npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./client/src --ext .ts,.tsx",
+    "postinstall": "cd client && npm install && cd .."
   },
   "devDependencies": {
-    "vsce": "^2.6.6"
+    "@types/node": "^18.16.18",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "eslint": "^8.43.0",
+    "typescript": "5.0.2"
   }
 }

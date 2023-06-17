@@ -1,17 +1,30 @@
-# nickel-syntax
+# unofficial-nickel-vscode
 
-Syntax highlighting for the [Nickel](https://github.com/tweag/nickel) language in Visual Studio Code.
+Unofficial Visual Stuido Code extension for the [Nickel](https://github.com/tweag/nickel) language v1.0.
+
+- Syntax based on: [kubukoz/vscode-nickel-syntax](https://github.com/kubukoz/vscode-nickel-syntax)
+- LSP client based on: [tweag/nickel](https://github.com/tweag/nickel/tree/master/lsp/client-extension)
+
+⚠️ This is just a quickly hacked together extension for my convenience. I cannot provide support for it, nor do I intend to develop this into something more concrete. I'm happy to accept contributions or extend maintainer rights if someone would like to have a go at it though.
 
 ## Features
 
-- basic syntax highlighting: parentheses/brackets, comments, keywords, operators
+- Basic syntax highlighting: parentheses, brackets, comments, keywords, operators
+- Language server support using the official [Nickel](https://github.com/tweag/nickel) LSP server
+- Code formatting using [Topiary](https://github.com/tweag/topiary)
 
-## Release Notes
+## Prerequsites
 
-Users appreciate release notes as you update your extension.
+### Install `nickel`, `nls` and `topiary`
 
-### 0.0.1
+```
+nix profile install nixpkgs#{nickel,nls,topiary}
+```
 
-Initial release of nickel-syntax
+## Compiling
 
------------------------------------------------------------------------------------------------------------
+```
+$ nix develop
+$ npm install
+$ vsce package
+```

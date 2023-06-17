@@ -1,20 +1,23 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  description = "Visual Studio Code extension for the Nickel language";
 
-  outputs = { self, nixpkgs, flake-utils, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      {
-        defaultPackage = pkgs.callPackage ./derivation.nix { };
-        packages = {
-          test = self.defaultPackage.${system};
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
+
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            nodejs
+            vsce
+            nickel
+            nls
+            topiary
+          ];
         };
-      }
-    );
+      };
+    };
 }
-
-

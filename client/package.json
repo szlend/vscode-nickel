@@ -1,0 +1,22 @@
+{
+    "name": "unofficial-vscode-nickel-lsp",
+    "description": "Unofficial Visual Studio Code LSP extension for the Nickel language",
+    "author": "szlend",
+    "license": "Apache-2.0",
+    "version": "0.1.0",
+    "publisher": "szlend",
+    "repository": {
+        "url": "https://github.com/szlend/vscode-nickel",
+        "type": "git"
+    },
+    "engines": {
+        "vscode": "^1.79.1"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^8.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18.16.18",
+        "@types/vscode": "^1.79.1"
+    }
+}
